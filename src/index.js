@@ -134,7 +134,7 @@ class YAWN {
     let node = getNode(ast, pathlist);
     return !!node && !!(this.yaml = setNodeRemark(node, remark, this.yaml));
   }
-};
+}
 
 export default YAWN;
 

@@ -1,6 +1,5 @@
-'use strict';
-
-import {expect} from 'chai';
+import chai from 'chai';
+const {expect} = chai;
 import YAWN from '../src/index.js';
 
 describe('preserves comments and styling in objects when', ()=> {
@@ -115,7 +114,7 @@ describe('preserves comments and styling in objects when', ()=> {
 
       let yawn = new YAWN(str);
       let json = yawn.json;
-      json.newVal = {ans: 42, cond: 'good'};
+      json.newVal = {'ans': 42, 'cond': 'good'};
       yawn.json = json;
 
       expect(yawn.yaml).to.equal(`
@@ -138,9 +137,9 @@ describe('preserves comments and styling in objects when', ()=> {
       let yawn = new YAWN(str);
       let json = yawn.json;
       json.map = {
-        val: 1,
-        hash1: {ans: 42, cond: 'good'},
-        hash2: {ans: 34, cond: 'not-bad'}
+        'val': 1,
+        'hash1': {'ans': 42, 'cond': 'good'},
+        'hash2': {'ans': 34, 'cond': 'not-bad'}
       };
       yawn.json = json;
 
@@ -166,9 +165,9 @@ describe('preserves comments and styling in objects when', ()=> {
 
       let yawn = new YAWN(str);
       let json = {
-        map: {val: 1},
-        hash1: {ans: 42, cond: 'good'},
-        hash2: {ans: 34, cond: 'not-bad'}
+        'map': {'val': 1},
+        'hash1': {'ans': 42, 'cond': 'good'},
+        'hash2': {'ans': 34, 'cond': 'not-bad'}
       };
       yawn.json = json;
 
@@ -198,12 +197,12 @@ describe('preserves comments and styling in objects when', ()=> {
 
       let yawn = new YAWN(str);
       yawn.json = {
-        a: {
-          x: 'abc'
+        'a': {
+          'x': 'abc'
         },
-        b: {
-          y: 'b',
-          z: 'abc'
+        'b': {
+          'y': 'b',
+          'z': 'abc'
         }
       };
 
