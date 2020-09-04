@@ -1,42 +1,25 @@
 {
-  "name": "yawn-yaml",
-  "version": "1.5.0",
+  "name": "@kuuhubb/yawn-yaml",
+  "version": "1.5.3",
   "description": "YAML parser that preserves comments and styling",
-  "main": "dist/yawn.js",
+  "main": "src/index.js",
   "dependencies": {
-    "js-yaml": "^3.4.2",
-    "lodash": "^4.17.11",
+    "js-yaml": "^3.14.0",
+    "lodash": "^4.17.20",
     "yaml-js": "^0.2.3"
   },
   "devDependencies": {
-    "chai": "^3.3.0",
-    "babel": "^5.8.23",
-    "babelify": "^6.3.0",
-    "browserify": "^16.5.1",
-    "browserify-global-shim": "^1.0.0",
-    "eslint": "^1.5.1",
-    "mocha": "^7.1.1",
-    "mocha-eslint": "^1.0.0"
+    "chai": "^4.2.0",
+    "eslint": "^7.8.1",
+    "mocha": "^7.2.0"
   },
+  "type": "module",
   "scripts": {
-    "test": "mocha --compilers js:babel/register",
-    "browserify": "browserify --debug src/index.js -s YAWN -t [ babelify --sourceMapRelative . ] --outfile dist/yawn.js",
-    "commonjs": "babel src --out-dir cjs",
-    "prepublish": "npm run browserify && npm run commonjs"
-  },
-  "browserify": {
-    "transform": [
-      "browserify-global-shim"
-    ]
-  },
-  "browserify-global-shim": {
-    "yaml-js": "yaml",
-    "js-yaml": "jsyaml",
-    "lodash": "_"
+    "test": "mocha test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohsen1/yawn.git"
+    "url": "git+https://github.com/Kuuhubb/yawn.git"
   },
   "keywords": [
     "yaml"
@@ -44,7 +27,7 @@
   "author": "Mohsen Azimi <me@azimi.me>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mohsen1/yawn/issues"
+    "url": "https://github.com/Kuuhubb/yawn/issues"
   },
-  "homepage": "https://github.com/mohsen1/yawn#readme"
+  "homepage": "https://github.com/Kuuhubb/yawn#readme"
 }

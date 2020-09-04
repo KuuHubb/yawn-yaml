@@ -1,6 +1,5 @@
-'use strict';
-
-import {expect} from 'chai';
+import chai from 'chai';
+const {expect} = chai;
 import YAWN from '../src/index.js';
 
 describe('preserves comments and styling when', ()=> {
@@ -15,7 +14,7 @@ describe('preserves comments and styling when', ()=> {
         # trailing comment`;
 
       let yawn = new YAWN(str);
-      yawn.json = {val1: 1, val2: 2};
+      yawn.json = {'val1': 1, 'val2': 2};
 
       expect(yawn.yaml).to.equal(`
         # leading comment

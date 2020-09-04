@@ -1,6 +1,5 @@
-'use strict';
-
-import {expect} from 'chai';
+import chai from 'chai';
+const {expect} = chai;
 import YAWN from '../src/index.js';
 
 describe('preserves comments and styling when', ()=> {

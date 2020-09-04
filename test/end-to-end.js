@@ -1,20 +1,23 @@
-'use strict';
-
+import chai from 'chai';
+const {expect} = chai;
 import {readFileSync, readdirSync} from 'fs';
-import {join} from 'path';
-import {load} from 'js-yaml';
-import {expect} from 'chai';
+import jsYaml from 'js-yaml';
+const {load} = jsYaml;
 import YAWN from '../src/index.js';
+import path from 'path';
+import {fileURLToPath} from 'url';
+
+const dirname = path.dirname(fileURLToPath(import.meta.url)) + '/';
 
 describe('end to end', ()=> {
 
-  readdirSync(join(__dirname, 'end-to-end')).forEach(testCase=> {
+  readdirSync(path.join(dirname, 'end-to-end')).forEach(testCase=> {
 
     it(`preserves comments and styling for test case ${testCase}`, ()=> {
 
-      const path = join(__dirname, 'end-to-end', testCase);
-      const input = readFileSync(join(path, 'input.yaml')).toString();
-      const output = readFileSync(join(path, 'output.yaml')).toString();
+      const p = path.join(dirname, 'end-to-end', testCase);
+      const input = readFileSync(path.join(p, 'input.yaml')).toString();
+      const output = readFileSync(path.join(p, 'output.yaml')).toString();
       const newJson = load(output);
 
       const yawn = new YAWN(input);

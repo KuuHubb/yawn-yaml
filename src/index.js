@@ -1,9 +1,10 @@
-'use strict';
-
 import { EOL } from 'os';
-import {compose, serialize} from 'yaml-js';
-import {load, dump} from 'js-yaml';
-import {
+import yamlJS from 'yaml-js';
+const {compose, serialize} = yamlJS;
+import jsYaml from 'js-yaml';
+const {load, dump} = jsYaml;
+import lodash from 'lodash';
+const {
   isArray,
   isString,
   isObject,
@@ -15,7 +16,7 @@ import {
   each,
   includes,
   last
-} from 'lodash';
+} = lodash;
 
 import YAWNError from './error.js';
 
@@ -30,7 +31,7 @@ const SPACE = ' ';
 const DASH = '-';
 
 // export default class YAWN {
-export default class YAWN {
+class YAWN {
 
   constructor(str) {
     if (!isString(str)) {
@@ -134,6 +135,8 @@ export default class YAWN {
     return !!node && !!(this.yaml = setNodeRemark(node, remark, this.yaml));
   }
 }
+
+export default YAWN;
 
 /*
  * Determines the AST tag of a JSON object

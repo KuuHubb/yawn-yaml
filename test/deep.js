@@ -1,6 +1,5 @@
-'use strict';
-
-import {expect} from 'chai';
+import chai from 'chai';
+const {expect} = chai;
 import YAWN from '../src/index.js';
 
 describe('preserves comments and styling in objects when', ()=> {
@@ -81,7 +80,7 @@ describe('preserves comments and styling in objects when', ()=> {
 
       let yawn = new YAWN(str);
       let json = yawn.json;
-      json.obj.deep.newVal = {val: 43};
+      json.obj.deep.newVal = {'val': 43};
       yawn.json = json;
 
       expect(yawn.yaml).to.equal(`
